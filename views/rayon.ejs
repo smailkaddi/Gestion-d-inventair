@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-them.min.css">
+    <link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Home</a>
+          </div>
+          <nav class="collapse navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+              <li>
+                <a href="/"> produit </a>
+              </li>
+              <li>
+                <a   href="/fournisseur" >fournisseur</a>
+              </li>
+              <li>
+                <a href="/rayon">rayon</a>
+              </li>
+              <li>
+                <a href="/contact">contact Us</a>
+              </li>
+            </ul>
+            <ul class="nav navbar-right navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+                <ul class="dropdown-menu" style="padding:12px;">
+                  <form class="form-inline">
+                    <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+                  </form>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      
+      <div id="masthead">  
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7">
+              <h1>stock
+                <p class="lead"></p>
+              </h1>
+            </div>
+            <div class="col-md-5">
+              <div class="well well-lg"> 
+                <div class="row">
+                  <div class="col-sm-12">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div><!-- /cont -->
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="top-spacer"> </div>
+            </div>
+          </div> 
+        </div><!-- /cont -->
+        
+      </div>
+      
+      
+      <div class="container">
+        <div class="row">
+          
+          <div class="col-md-12"> 
+            
+            <div class="panel">
+              <div class="panel-body">
+              
+                <div class="row">   
+                   
+            <div class="container">
+
+               <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand" style="color: #fff;"><a href="/" style="text-decoration: none; color: white;">Rayon</a>-<%= pageTitle %></span>
+          </nav>
+             <div class="col s12" style="margin-top: 3%;">
+              <% for(item of items){%>
+                    <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;text-align: center;">Name</th>
+                            <th style="width: 15%;text-align: center;">Category</th>
+                            <th style="width: 15%;text-align: center;">Price</th>
+                            <th style="width: 15%;text-align: center;">Quantité</th>
+                            <th style="width: 15%;text-align: center;">Rayon</th>
+                            <th style="width: 15%;text-align: center;">Rayon name</th>
+                            <th solspan="2" style="width: 20%;text-align: center;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                 
+                            <tr>
+                                <td style="width: 15%;text-align: center;"><a href="/fornisseur/<%= item.id_P %>" style="color: black; text-decoration: none;"><%= item.nameP %></a></td>
+                                <td style="width: 15%;text-align: center;"><%= item.categorie %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.price %> $</td>
+                                <td style="width: 15%;text-align: center;"><%= item.quantité %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.id_R %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.name %></td>
+                                <td solspan="2" style="width: 20%;text-align: center;">
+                                    <a href= "/edit/<%= item.id_P %>" class="btn btn-success">Edit</a>
+                                    <a href="/delete/<%= item.id_P %>" class="btn btn-danger">Delete</a>
+
+                                 
+                                </td>
+                            </tr>
+                        <%}%>
+                    </tbody>
+                </table>
+              </div>
+            <div class="col s12" style="margin-top: 3%;">
+                <a href="/add" class="btn btn-info btn-lg">Add new produit</a>
+            </div>
+             </div><!--/col-12-->
+        </div>
+      </div>                                                                            
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <h1>Follow Us</h1>
+              <div class="btn-group">
+               <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+               <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+               <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js" > </script>
+</body>
+</html>

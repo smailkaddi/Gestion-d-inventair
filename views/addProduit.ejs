@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-them.min.css">
+    <link rel="stylesheet" href="css/css.css">
+</head>
+<body>
+    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+        <div class="container">
+          <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Home</a>
+          </div>
+          <nav class="collapse navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+              <li>
+                <a href="/"> produit </a>
+              </li>
+              <li>
+                <a href="/fournisseur">fournisseur</a>
+              </li>
+              <li>
+                <a href="/rayon">rayon</a>
+              </li>
+              <li>
+                <a href="#">contact Us</a>
+              </li>
+            </ul>
+            <ul class="nav navbar-right navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
+                <ul class="dropdown-menu" style="padding:12px;">
+                  <form class="form-inline">
+                    <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
+                  </form>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      
+      <div id="masthead">  
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7">
+              <h1>stock
+                <p class="lead"></p>
+              </h1>
+            </div>
+            <div class="col-md-5">
+              <div class="well well-lg"> 
+                <div class="row">
+                  <div class="col-sm-12">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div><!-- /cont -->
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="top-spacer"> </div>
+            </div>
+          </div> 
+        </div><!-- /cont -->
+        
+      </div>
+      
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12"> 
+            <div class="panel">
+              <div class="panel-body">
+                <div class="row">           
+                  <form  action="/add" method="POST">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">idP</label>
+                      <input type="text" name="id_P" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                     </div>
+                   <div class="form-group">
+                   <label for="exampleInputEmail1">nameP</label>
+                   <input type="text" name="nameP" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">categorie</label>
+                    <input type="text" name="categorie" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                   </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Quantité</label>
+                    <input type="text" name="quantité"  value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                   </div>  <div class="form-group">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">price</label>
+                      <input type="text" name="price"  value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                     </div>  <div class="form-group">
+                       </div>  <div class="form-group">
+                    <label for="exampleInputEmail1">id_R</label>
+                    <input type="text" name="id_R"  value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                   </div>
+                  </div>  <div class="form-group">
+                    <label for="exampleInputEmail1">idF</label>
+                    <input type="text" name="id_F"  value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                   </div>
+              
+                 <button type="submit"  name="submit" value="ADD" class="btn btn-primary">Ajoute</button>
+            </form>                            
+             </div><!--/col-12-->
+        </div>
+      </div>                                                                            
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6">
+              <h1>Follow Us</h1>
+              <div class="btn-group">
+               <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+               <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+               <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js" > </script>
+</body>
+</html>
