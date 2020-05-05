@@ -26,22 +26,16 @@
                 <a href="/"> produit </a>
               </li>
               <li>
-                <a   href="/fournisseur" >fournisseur</a>
+                <a href="/fournisseur">fournisseur</a>
               </li>
               <li>
                 <a href="/rayon">rayon</a>
               </li>
               <li>
-                <a href="/contact">contact Us</a>
+                <a href="#">contact Us</a>
               </li>
             </ul>
-            <ul class="nav navbar-right navbar-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
-                <ul class="dropdown-menu" style="padding:12px;">
-                  <form class="form-inline">
-                    <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
-                  </form>
+     
                 </ul>
               </li>
             </ul>
@@ -53,7 +47,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-7">
-              <h1>stock
+              <h1>Gestion d'inventair
                 <p class="lead"></p>
               </h1>
             </div>
@@ -91,44 +85,43 @@
             <div class="container">
 
                <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand" style="color: #fff;"><a href="/" style="text-decoration: none; color: white;">Rayon</a>-<%= pageTitle %></span>
+        <span class="navbar-brand" style="color: #fff;"><a href="/" style="text-decoration: none; color: white;">Rayon</a></span>
           </nav>
              <div class="col s12" style="margin-top: 3%;">
               <% for(item of items){%>
                     <table class="table">
                     <thead>
                         <tr>
-                            <th style="width: 15%;text-align: center;">Name</th>
-                            <th style="width: 15%;text-align: center;">Category</th>
-                            <th style="width: 15%;text-align: center;">Price</th>
+                            <th style="width: 15%;text-align: center;">Name Rayon</th>
+                            <th style="width: 15%;text-align: center;">produit</th>
+                            <th style="width: 15%;text-align: center;">image de P</th>
                             <th style="width: 15%;text-align: center;">Quantité</th>
                             <th style="width: 15%;text-align: center;">Rayon</th>
-                            <th style="width: 15%;text-align: center;">Rayon name</th>
+                            <th style="width: 15%;text-align: center;">id-F</th>
                             <th solspan="2" style="width: 20%;text-align: center;">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                 
                             <tr>
-                                <td style="width: 15%;text-align: center;"><a href="/fornisseur/<%= item.id_P %>" style="color: black; text-decoration: none;"><%= item.nameP %></a></td>
-                                <td style="width: 15%;text-align: center;"><%= item.categorie %></td>
-                                <td style="width: 15%;text-align: center;"><%= item.price %> $</td>
-                                <td style="width: 15%;text-align: center;"><%= item.quantité %></td>
-                                <td style="width: 15%;text-align: center;"><%= item.id_R %></td>
-                                <td style="width: 15%;text-align: center;"><%= item.name %></td>
+                                 <td style="width: 15%;text-align: center;"><%= item.name %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.id_P %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.img %></td>
+                                <td style="width: 15%;text-align: center;">tt</td>
+                                <td style="width: 15%;text-align: center;">tt</td>
+                                <td style="width: 15%;text-align: center;">tt</td>
                                 <td solspan="2" style="width: 20%;text-align: center;">
-                                    <a href= "/edit/<%= item.id_P %>" class="btn btn-success">Edit</a>
-                                    <a href="/delete/<%= item.id_P %>" class="btn btn-danger">Delete</a>
-
-                                 
+                                    <a href="/edit/<%= item.id_P %>" class="btn btn-success">Edit</a>
+                                    <a href="/delete-rayon/<%= item.id_P %>" class="btn btn-danger">Delete</a>
                                 </td>
                             </tr>
-                        <%}%>
+                  
                     </tbody>
                 </table>
+                <%}%>
+                <p><strong>other items</strong></p>
               </div>
             <div class="col s12" style="margin-top: 3%;">
-                <a href="/add" class="btn btn-info btn-lg">Add new produit</a>
+                <a href="/add2" class="btn btn-info btn-lg">Add new produit</a>
             </div>
              </div><!--/col-12-->
         </div>

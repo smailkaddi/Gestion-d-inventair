@@ -33,27 +33,27 @@ app.get('/', (req, res, next) => {
         const query = con.query(sql, (err, result) => {
             if(err)throw err;
                 res.render('produit', {
-                       
                         pageTitle : 'produit',
                         items : result
                 });
                     
         })
     });
-    app.get('/produit/add',(req,res, next)=>{
+    app.get('/add',(req,res, next)=>{
              res.render('addProduit',{
                  pageTitle : 'Add new produit',
-                 produit:''      
+                 items:''      
              })
 
     });
 
-    app.post('/produit/add',(req, res) => { 
+    app.post('/add',(req, res) => { 
         let data = {id_P: req.body.id_P, nameP: req.body.nameP,  categorie: req.body.categorie,  quantité: req.body.quantité, price: req.body.price, id_F: req.body.id_F, id_R: req.body.id_R };
         let sql = "INSERT INTO produit SET ?";
         let query = con.query(sql, data,(err, results) => {
           if(err) throw err;
-          res.render('/')
+
+          res.redirect(baseURL);
                        
               
                 
@@ -69,87 +69,110 @@ app.get('/', (req, res, next) => {
             res.redirect(baseURL);
         });
     });
-    
-app.get('/edit/:id',(req, res) => {
 
-    const authorId = req.params.id;
-    let sql = `Select * from produit where id_P = ${authorId}`;
-    let query = con.query(sql,(err, result) => {
-        if(err) throw err;
-        res.render('editproduit', {
-           
-            pageTitle : "Editing Product: " ,
-            item : result
+    app.get('/fournisseur',(req, res) => {
+       
+        const sql = "SELECT * FROM fournisseur";
+        let query = con.query(sql, (err, result) => {
+            if(err) throw err;
+            res.render('fournisseur', {
+             
+                pageTitle : 'Provider',
+                items : result
+            });
         });
     });
-});
-
-app.post('/edit/:id',(req, res) => {
-  
-    let userId = req.body.id_P
-      let sql = `UPDATE produit SET name_p='${req.body.name_p}', category='${req.body.category}', price='${req.body.price}', quantité='${req.body.quantité}', id_R='${req.body.id_R}' WHERE id_P =${userId}`;
-      let query = con.query(sql,(err, results) => {
-        if(err) throw err;
-        res.redirect(baseURL);
-      });
-  });
-
-
-//  Delete some data
-app.get('/delete/:id', (req, res) => {
-    const userId = req.params.id;
-    let sql = `DELETE from produit where id_P = ${userId}`;
-    let query = con.query(sql,(err, result) => {
-        if(err) throw err;
-        res.redirect(baseURL);
-    });
-});
-
     
-app.get('/fornisseur/:id',(req, res) => {
-    id = req.params.id;
-    let sql = "SELECT fornisseur.id_P, fornisseur.name, fornisseur.address, fornisseur.télé, fornisseur.email, produit.id_P, produit.name_p FROM fornisseur INNER JOIN produit ON fornisseur.id_P = produit.id_P AND fornisseur.id_P = '" +id+ "' ";
-    let query = con.query(sql, (err, result) => {
-        if(err) throw err;
-        res.render('fornisseur', {
-        
-            pageTitle : 'Provider',
-            items : result
+    // ADD new fornisseur
+    
+    app.get('/add1',(req, res) => {
+        res.render('addfournisseur', {
+         
+            pageTitle : 'Add new Provider ',
+            items : ''
         });
     });
-});
-
-// ADD new fornisseur
-
-app.get('/add/fornisseur',(req, res) => {
-    res.render('addfornisseur', {
-   
-        pageTitle : 'Add new Provider ',
-        items : ''
+       
+    app.post('/add1',(req, res) => { 
+        let data = {name: req.body.name, address: req.body.address, télé: req.body.télé, email: req.body.email, id_P: req.body.id_P, id_F: req.body.id_F,};
+        let sql = "INSERT INTO fournisseur SET ?";
+        let query = con.query(sql, data,(err, results) => {
+          if(err) throw err;
+          res.redirect('/fournisseur');
+        });
     });
-});
-   
-app.post('/add/fornisseur',(req, res) => { 
-    let data = {name: req.body.name, address: req.body.address, télé: req.body.télé, email: req.body.email, id_P: req.body.id_P};
-    let sql = "INSERT INTO fornisseur SET ?";
-    let query = con.query(sql, data,(err, results) => {
-      if(err) throw err;
-      res.redirect(baseURL);
+ 
+
+
+    app.get('/delete-fournisseur/:id', (req, res) => {
+        const userId = req.params.id;
+        let sql = `DELETE from  fournisseur where id_P = ${userId}`;
+        let query = con.query(sql,(err, result) => {
+            res.redirect('/fournisseur');
+        });
     });
-});
 
-
-
-//  Delete some data
-app.get('/delete-fornisseur', (req, res) => {
-    let sql = `DELETE from fornisseur`;
-    let query = con.query(sql,(err, result) => {
-        if(err) throw err;
-        res.redirect(baseURL);
+    app.get('/',(req, res) => {
+        let sql = "SELECT rayon.name, rayon.img, produit.id_P,  rayon.nameP, rayon.ID FROM rayon INNER JOIN produit ON produit.id_P = rayon.id_P ";
+        let query = con.query(sql, (err, result) => {
+            if(err) throw err;
+            res.render('rayon', {
+            
+                pageTitle : 'Stock Management',
+                items : result
+            });
+        });
     });
-});
+    
+    // ADD new rayon
+
+
+    
+app.get('/rayon', (req, res, next) => {
+        const sql = "SELECT * FROM rayon";
+        const query = con.query(sql, (err, result) => {
+            if(err)throw err;
+                res.render('rayon', {
+                       
+                        items : result
+                });
+                    
+        })
+    });
+    app.get('/add2',(req,res, next)=>{
+             res.render('addrayon',{
+                 pageTitle : 'Add new produit',
+                 items:''      
+             })
+
+    });
+
     
 
+       
+    app.post('/add2',(req, res) => { 
+        let data = {name: req.body.name, img: req.body.img, id_P: req.body.id_P};
+        let sql = "INSERT INTO rayon SET ?";
+        let query = con.query(sql, data,(err, results) => {
+          if(err) throw err;
+          res.redirect('rayon');
+        });
+    });
+
+    
+      app.get('/delete-rayon/:id', (req, res) => {
+        const userId = req.params.id;
+        let sql = `DELETE from rayon where id_P = ${userId}`;
+        let query = con.query(sql,(err, result) => {
+            if(err) throw err;
+            res.redirect('/rayon');
+        });
+    });
+
+
+
+
+ 
 
 // app.get('/',function(req,res){
 //         res.sendFile(path.join(__dirname + '/views/index.ejs'));

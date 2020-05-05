@@ -23,25 +23,21 @@
           <nav class="collapse navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
               <li>
-                <a href="#"> produit </a>
+                <a href="/"> produit </a>
               </li>
               <li>
-                <a   >fournisseur</a>
+                <a href="/fournisseur">fournisseur</a>
               </li>
               <li>
-                <a href="#">rayon</a>
+                <a href="/rayon">rayon</a>
               </li>
               <li>
                 <a href="#">contact Us</a>
               </li>
             </ul>
             <ul class="nav navbar-right navbar-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i></a>
-                <ul class="dropdown-menu" style="padding:12px;">
-                  <form class="form-inline">
-                    <button type="submit" class="btn btn-default pull-right"><i class="glyphicon glyphicon-search"></i></button><input type="text" class="form-control pull-left" placeholder="Search">
-                  </form>
+           
+                
                 </ul>
               </li>
             </ul>
@@ -53,7 +49,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-7">
-              <h1>stock
+              <h1>Gestion d'inventair
                 <p class="lead"></p>
               </h1>
             </div>
@@ -90,49 +86,45 @@
                    
             <div class="container">
 
-             <form  action="/fournisseur" method="POST">
-        <div class="col s12" style="margin-top: 3%;">
-            <% for(item of items){%>
-                <table class="table">
+               <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand" style="color: #fff;"><a href="/" style="text-decoration: none; color: white;">Rayon</a></span>
+          </nav>
+             <div class="col s12" style="margin-top: 3%;">
+              <% for(item of items){%>
+                    <table class="table">
                     <thead>
                         <tr>
-                            <th style="width: 15%;text-align: center;color: rgb(31, 95, 133);">Name</th>
-                            <th style="width: 15%;text-align: center;color: rgb(31, 95, 133);">Address</th>
-                            <th style="width: 15%;text-align: center;color: rgb(31, 95, 133);">Télé</th>
-                            <th style="width: 15%;text-align: center;color: rgb(31, 95, 133);">Email</th>
-                            <th style="width: 15%;text-align: center;color: rgb(31, 95, 133);">id-Produit</th>
-                            <th style="width: 15%;text-align: center;color: rgb(31, 95, 133);">Produit name</th>
-                            <th solspan="2" style="width: 20%;text-align: center;color: rgb(31, 95, 133);">Actions</th>
+                            <th style="width: 15%;text-align: center;">Name</th>
+                            <th style="width: 15%;text-align: center;">address</th>
+                            <th style="width: 15%;text-align: center;">tele</th>
+                            <th style="width: 15%;text-align: center;">email</th>
+                            <th style="width: 15%;text-align: center;">ID_P</th>
+                            <th style="width: 15%;text-align: center;">ID_F</th>
+                            <th solspan="2" style="width: 20%;text-align: center;">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                    
                             <tr>
-                                <td style="width: 15%;text-align: center;"><%= item.nameF %></td>
+                              <td style="width: 15%;text-align: center;"><%= item.name %></td>
                                 <td style="width: 15%;text-align: center;"><%= item.address %></td>
-                                <td style="width: 15%;text-align: center;"><%= item.tele %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.télé %></td>
                                 <td style="width: 15%;text-align: center;"><%= item.email %></td>
                                 <td style="width: 15%;text-align: center;"><%= item.id_P %></td>
-                                <td style="width: 15%;text-align: center;"><%= item.name_p %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.id_F %></td>
                                 <td solspan="2" style="width: 20%;text-align: center;">
-                                    <a href="/delete-fornisseur" class="btn" style="background-color: rgb(49, 175, 197); color: white;">Delete</a>
-                                  
+                                    <a href="/edit/<%= item.id_P %>" class="btn btn-success">Edit</a>
+                                    <a href="/delete-fournisseur/<%= item.id_P %>" class="btn" style="background-color: rgb(49, 175, 197); color: white;">Delete</a>
                                 </td>
                             </tr>
-                            <%}%>
+                  
                     </tbody>
                 </table>
-    
-                <p style="text-align: center; margin-top: 20%;"><strong>There is no items </strong></p>
-         
-        </div>
-        <div class="col s12" style="margin-top: 3%;">
-            
-            <a href="/add/fornisseur" class="btn btn-info btn-lg">Add new produit</a>
-        </div>
-               
-            </form>
-
+                <%}%>
+                <p><strong>other items</strong></p>
+              </div>
+            <div class="col s12" style="margin-top: 3%;">
+                <a href="/add1" class="btn btn-info btn-lg">Add new produit</a>
+            </div>
              </div><!--/col-12-->
         </div>
       </div>                                                                            
